@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "BKBinarySort.h"
 
 @interface ViewController ()
 
@@ -13,10 +14,28 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
++ (void)load {
+
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    testCFunc();
+    [self testOCFunc];
+    BKTestBlock();
+    [BKBinarySort sort];
+}
+
+- (void)testOCFunc {
+    NSLog(@"oc函数");
+}
+
+void testCFunc() {
+    NSLog(@"c func");
+}
+
+void(^BKTestBlock)(void) = ^(void){
+    NSLog(@"block");
+};
 
 @end
